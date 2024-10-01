@@ -92,14 +92,14 @@ pipeline {
           }
         }
 
-    //     // Trigger gitops-calculator
-    //       stage("Trigger CD Pipeline") {
-    //         steps {
-    //             script {
-    //                 sh "curl -v -k --user raemond:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' 'http://192.168.100.150:8080/job/gitops-calculator/buildWithParameters?token=gitops-token-calculator'"
-    //             }
-    //         }
-    //    }
+        // Trigger gitops-calculator
+          stage("Trigger CD Pipeline") {
+            steps {
+                script {
+                    sh "curl -v -k --user raemond:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' 'http://192.168.100.151:8080/job/gitops-carvilla/buildWithParameters?token=gitops-token-carvilla'"
+                }
+            }
+       }
 
    }
 }
